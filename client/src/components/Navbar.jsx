@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <div className="flex md:flex-row flex-col-reverse justify-between mb-[35px] gap-6">
      
-     <div className="text-white font-bold text-xl">Crypto Crowd Forge</div>
+     <div className="text-white font-bold text-3xl">Crypto Crowd Forge</div>
 
       <div className="sm:flex hidden flex-row justify-end gap-4">
         <CustomButton 
