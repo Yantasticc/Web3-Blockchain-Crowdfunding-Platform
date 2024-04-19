@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { logo, sun } from '../assets';
+import { logo, sun,logout } from '../assets';
 import { navlinks } from '../constants';
 
 const Icon = ({ styles, name, imgUrl, isActive, disabled, handleClick }) => (
@@ -17,6 +17,16 @@ const Icon = ({ styles, name, imgUrl, isActive, disabled, handleClick }) => (
 const Sidebar = () => {
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState('dashboard');
+
+  const handleLogout = () => {
+    const confirmLogout = window.confirm('Are you sure you want to logout?');
+    if (confirmLogout) {
+      // Disconnect from MetaMask account here
+      // Add your code to disconnect from the MetaMask account
+      // window.ethereum.disconnect();
+      navigate('/logout'); // Navigate to the login page after logout
+    }
+  };
 
   return (
     <div className="flex justify-between items-center flex-col sticky top-5 h-[93vh]">
@@ -41,10 +51,10 @@ const Sidebar = () => {
           ))}
         </div>
 
-        <Icon styles="bg-[#1c1c24] shadow-secondary" imgUrl={sun} />
+        <Icon styles="bg-[#1c1c24] shadow-secondary" imgUrl={logout} handleClick={handleLogout} />
       </div>
     </div>
   )
 }
 
-export default Sidebar
+export default Sidebar;
